@@ -23,6 +23,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+
     transition: var(--transtionColor)
     
 }
@@ -55,7 +56,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 1em;
+    margin-inline-end: 1em;
     
 }
 .H-area a {
@@ -70,7 +71,7 @@ header {
 }
 .headerTitle{
     display: inline;
-    margin-left: 1em;
+    margin-inline-start: 1em;
     color: var(--TitlesColor);
 }
 .menu-overlay {
@@ -400,7 +401,7 @@ hr {
     transition: color  3s ease;
 }
 .email_Section {
-    width: 95%;
+    width: 70%;
     padding: 10px;
     height: auto;
     background-color: var(--emailScetionBackgroundColor);
@@ -472,29 +473,38 @@ form input {
     justify-content: center;
     gap: 2em;
 }
-.footer-end h6{
-    color: white;
-    display: block;
+.copySec{
     text-align: center;
 }
-.version{
-    color: green;
+.copySec h6{
+    color: white;
+    display: inline;
+    text-align: center;
 }
+
+.version{
+    color: green !important;
+}
+
 @media (max-width: 480px) {
     .NavBar,header{
-        display: none; 
+        display: none ; 
     }
     
 }
-@media (min-width: 481px) and (max-width: 566px) {
+@media (min-width: 481px) and (max-width: 605px) {
     .headerTitle {
     display: inline;
     margin-left: 8px;
-    font-size: 27px;
+    font-size: 15px;
+    margin-top: 25px;
     }
     
     .NavBar .n1{
         margin-left: 1px;
+    }
+    header{
+        height: 70px;
     }
     
 }
