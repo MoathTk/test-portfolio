@@ -1,14 +1,30 @@
 :root {
     --mainColor: rgb(66, 66, 192);
+    --mobileBarColor: gray;
     --mainColorHover: rgb(149, 149, 255);
+    --mainBodyColor: #dfdfdfbb;
+    --mainHeadColor: #ffffffd2;
+    --TitlesColor: black;
+    --ShadowColor: rgb(207, 207, 207);
+    --SerCardColor: white;
+    --serCardIconColor: black;
+    --projectCardTitleColor: white;
+    --FooterSectionbackgroundColor: white;
+    --emailScetionBackgroundColor: #f7f7f7c2;
+    --contactAndEmailSEctiontitlesColor: rgb(94, 94, 94);
+    --transtionColor:  background-color  3s ease;
+    --menuColoricon: rgb(216, 216, 216);
+
 }
 
 body {
-    background-color: #f7f7f7bb;
+    background-color: var(--mainBodyColor);
     font-family: "Fustat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+    transition: var(--transtionColor)
+    
 }
 .Body2{
     padding: 1em;
@@ -16,13 +32,14 @@ body {
 }
 
 header {
-    background-color: #ffffffd2;
+    background-color: var(--mainHeadColor);
     display: flex;
     justify-content: space-between;
     border-radius: 6px;
     position: sticky;
     top: 0;
-    box-shadow: 0px 9px 9px 0px #e1e1e1;
+    box-shadow: 0px 9px 9px 0px var(--ShadowColor);
+    transition: var(--transtionColor)
 }
 
 .NavButton{
@@ -54,6 +71,7 @@ header {
 .headerTitle{
     display: inline;
     margin-left: 1em;
+    color: var(--TitlesColor);
 }
 .menu-overlay {
     position: fixed;
@@ -61,7 +79,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: gray;
+    background-color: var(--mobileBarColor);
     display: none;  
     justify-content: center;
     align-items: center;
@@ -81,7 +99,8 @@ header {
 }
 .n1{
     margin-left: 2vw;
-    transition: background-color  1s ease;
+    color: var(--mainColor);
+    transition: var(--transtionColor)
     
 }
 .n1:hover{
@@ -94,7 +113,7 @@ header {
 .menu{
     display: flex;
     justify-content: flex-end;
-    background-color: rgb(231, 231, 231);
+    background-color: var(--mobileBarColor);
     border-radius: 0.3em;
     position: sticky;
     z-index: 1;
@@ -103,11 +122,12 @@ header {
 .NavBar a{
     display: inline;
     width: 100%;
+    
 }
 .fas{
     font-size: 3.2em;
 
-    color: rgb(71, 71, 71)
+    color: var(--menuColoricon)
 }
 .fas:hover{
     color: rgb(153, 153, 153);
@@ -125,6 +145,7 @@ header {
     letter-spacing: -1px;
     margin-top: 0px;
     margin-bottom: 0px;
+    color: var(--TitlesColor);
 }
 .JobName{
     color: rgb(44, 44, 44);
@@ -146,7 +167,7 @@ header {
     border-color: transparent;
     font-weight: 500;
     margin-bottom: 3px;
-    transition:  background-color 1s ease;
+    transition:  var(--transtionColor)
     
 }
 .D_Cv_bS{
@@ -167,8 +188,7 @@ header {
     border-radius: 5px;
     border-color: var(--mainColor);
     font-weight: 600;
-    transition:  background-color 1s ease-in;
-    transition:   color 0.5s ease-in;
+    transition:  var(--transtionColor)
 }
 .C_Cv_b:hover{
     background: var(--mainColorHover);
@@ -176,12 +196,12 @@ header {
 }
 .JopInfo_Bar {
     margin-top: 100px;
-    background-color: white;
+    background-color: var(--mainHeadColor);
     display: flex;
     justify-content: space-between;
     border-radius: 40px;
     padding: 15px;
-    box-shadow: 0px 9px 9px 0px #d9d1d1
+    box-shadow: 0px 9px 9px 0px var(--ShadowColor);
 }
 .jobS{
     display: inline;
@@ -199,6 +219,7 @@ header {
     margin: 0px;
     font-size: 0.9em;
     font-weight: bold;
+    color: var(--TitlesColor);
 }
 .Services-Section{
     display: inline;
@@ -213,6 +234,7 @@ header {
     font-weight: 900;
     letter-spacing: -0.5px;
     display: inline;
+    color: var(--TitlesColor);
 }
 .Services-Card-Section {
     margin-top: 10px;
@@ -230,10 +252,12 @@ header {
 .Ser_card h3{
     display: block;
     margin-bottom: 0px;
+    color: var(--TitlesColor);
+    
 }
 .Ser_card{
     
-    background-color: white ;
+    background-color: var(--SerCardColor) ;
     height: 360px;
     width: 40%;
     display: flex;
@@ -243,11 +267,12 @@ header {
     padding: 10px;
     border-radius: 2%;
     justify-content: space-evenly;
+    transition: var(--transtionColor)
 }
 .Ser_card i {
     font-size: 38px;
     color: white;
-    background: black;
+    background: var(--serCardIconColor);
     border-radius: 50%;
     margin-left: 24%;
     margin-right: 24%;
@@ -293,6 +318,7 @@ header {
     font-weight: 900;
     font-size: 24px;
     letter-spacing: 1.4px;
+    color: var(--TitlesColor);
 }
 
 .Projects_Section_Area{
@@ -312,7 +338,7 @@ header {
     background-color: black;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0px 0px 3px 5px #dfdfdf;
+    box-shadow: 0px 0px 3px 5px var(--ShadowColor)
 
 }
 .Project-Card img{
@@ -325,8 +351,10 @@ header {
 .Project-Card a{
     margin: 4%;
     font-size: 20px;
-    color: white;
+    color: var(--projectCardTitleColor);
     font-weight: bold;
+    transition: var(--transtionColor)
+
 
 }
 .Project-Card a:hover{
@@ -349,7 +377,7 @@ hr {
 .FooterSection {
     width: 99%;
     height: auto;
-    background-color: white;
+    background-color: var(--FooterSectionbackgroundColor);
     margin-top: 100px;
     display: flex;
     justify-content: space-between;
@@ -363,27 +391,37 @@ hr {
     margin-right: 10px;
 
 }
+.Contact-place h2{
+    color: var(--TitlesColor)
+}
 .Contact-place h3{
-    color: #757575;
+    color:var(--contactAndEmailSEctiontitlesColor);
     font-size: 15px;
+    transition: color  3s ease;
 }
 .email_Section {
     width: 95%;
     padding: 10px;
     height: auto;
-    background-color: #f7f7f7c2;
+    background-color: var(--emailScetionBackgroundColor);
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
     flex-direction: column;
+    transition: var(--transtionColor)
+}
+.email_Section h2{
+    color: var(--TitlesColor);
+    transition: color  3s ease;
 }
 form label,form input{
     display: block;
 }
 form label{
-    color: gray;
+    color: var(--contactAndEmailSEctiontitlesColor);
     font-size: 15px;
     margin-top: 0px;
+    transition: color  3s ease;
 }
 form input {
     height: 25px;
@@ -448,15 +486,17 @@ form input {
     }
     
 }
-@media (min-width: 481px) and (max-width: 536px) {
+@media (min-width: 481px) and (max-width: 566px) {
     .headerTitle {
     display: inline;
     margin-left: 8px;
+    font-size: 27px;
     }
     
     .NavBar .n1{
         margin-left: 1px;
     }
+    
 }
 @media (max-width: 437px) {
     .jobS p{
