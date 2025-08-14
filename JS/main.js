@@ -1,3 +1,4 @@
+
 const menu = document.getElementById("NavButton");
 const menuOverlay = document.getElementById("menuOverlay");
 const menubutton = document.getElementById("menubutton");
@@ -9,10 +10,29 @@ const themeMbileButton = document.getElementById('MobileTheme');
 const CloseOverLayMenue = document.getElementById('close');
 const LangSwitchButton = document.getElementById('Langi');
 const LangSwitchButtonMobiel =document.getElementById('LangiMobile')
-let langauage = "ar"
+let langauage = localStorage.getItem('lang');
+let Theme = localStorage.getItem('Theme');
 let lightMode = true;
 let DarkMode = false;
 
+window.onload = function() {
+  
+    langauage = localStorage.getItem('lang')
+  if(localStorage.getItem('lang') === 'en'){
+    setEnglish();
+
+    
+  }
+  else{
+    setArabic();
+  }
+  if(localStorage.getItem("Theme") === 'dark'){
+    SetDarkMode();
+  }
+  else{
+    SetLightMode();
+  }
+}
 const Translations = {
     en: {
         headertitle:"Developer",
@@ -114,8 +134,15 @@ const Translations = {
 
     }
 }
+function SetLocatEnviromentVariables () {
+  if(Theme === "")
+  {
+    localStorage.setItem('Theme','Light')
+  }
+  
 
 
+}
 
 function SetLightMode() {
   document.documentElement.style.setProperty('--mainBodyColor','#f7f7f7bb');
@@ -132,12 +159,16 @@ function SetLightMode() {
   document.documentElement.style.setProperty('--mainColorHover','rgb(149, 149, 255)')
   document.documentElement.style.setProperty('--mobileBarColor','gray')
   document.documentElement.style.setProperty('--menuColoricon','rgb(216, 216, 216)')
-  console.log('lightmode');
-  DarkMode = false;
-  lightMode = true;
+  Theme = "light"
+
+
+  localStorage.setItem('Theme',Theme);
+  console.log(localStorage.getItem('Theme').toString())
+
 }
 
 function SetDarkMode() {
+
   document.documentElement.style.setProperty('--mainBodyColor','#1C1C1E');
   document.documentElement.style.setProperty('--mainColor','#4FD1C5');
   document.documentElement.style.setProperty('--mainHeadColor','black')
@@ -153,14 +184,15 @@ function SetDarkMode() {
   document.documentElement.style.setProperty('--mobileBarColor','black')
   document.documentElement.style.setProperty('--menuColoricon','#4FD1C5');
 
+  Theme = "dark";
 
-  console.log('Darktmode');
-    lightMode = false;
-  DarkMode = true;
+  localStorage.setItem('Theme',Theme);
+
+
 }
 
 function switchTheme() {
-  if(lightMode === true){
+  if(Theme === "light" || Theme === ""){
     SetDarkMode();
   }
   else{
@@ -193,32 +225,65 @@ CloseOverLayMenue.addEventListener("click",() => {
   menuOverlay.style.display = "none";
 })
 
+function setEnglish(){
+  langauage = localStorage.getItem('lang');
+
+  if( langauage=== "en"){
+      
+      document.documentElement.lang = langauage;
+      document.body.dir = "ltr";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.textContent = Translations[langauage][key];
+  }); 
+
+  }
+  
+}
+function setArabic(){
+  langauage = localStorage.getItem('lang')
+  if(langauage === "ar" ){
+      langauage = "ar";
+      document.documentElement.lang = langauage;
+      document.body.dir = "rtl";
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.textContent = Translations[langauage][key];
+  }); 
+  }
+  
+}
 
 
 
 function switchLanguage() {
 
-  document.documentElement.lang = langauage;
-  document.body.dir = langauage === "ar" ? "rtl" : "ltr";
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    el.textContent = Translations[langauage][key];
-  }); 
-
-
-
-  if(langauage === "en")
+  if(localStorage.getItem('lang') === "en")
   {
-        langauage = "ar"
-        document.documentElement.lang = langauage;
+    localStorage.setItem('lang', 'ar');
+    setArabic();
+
   }
+  else{
+    localStorage.setItem('lang','en');
+    setEnglish();
+  }
+  // if(localStorage.getItem('lang') === "en")
+  // {
+  //       setArabic();
+  //       document.documentElement.lang = 'ar';
+  //       localStorage.setItem('lang','ar')
+  //       console.log(1)
+  // }
   
-  else
-  {
-      langauage = "en"
-      document.documentElement.lang = langauage;
-  }
+  // else
+  // {
+  //   setEnglish();
+  //     langauage = "en"
+  //     document.documentElement.lang = 'en';
+  //     localStorage.setItem('lang','en')
+  //     console.log(2)
+  // }
 
 }
 
